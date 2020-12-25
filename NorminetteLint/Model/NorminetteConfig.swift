@@ -1,0 +1,14 @@
+/////
+////  NorminetteConfig.swift
+///   Copyright © 2020 Dmitriy Borovikov. All rights reserved.
+//
+
+
+import Foundation
+
+struct NorminetteConfig: Codable {
+    let hostname: String
+    let user: String
+    let password: String
+    let disabledRules: [String]?
+}

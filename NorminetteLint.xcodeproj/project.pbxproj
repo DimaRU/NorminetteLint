@@ -12,10 +12,11 @@
 		0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */; };
 		0A98299E2595E22C00625A04 /* NorminetteReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98299A2595E22C00625A04 /* NorminetteReply.swift */; };
 		0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */; };
-		0A9829A22595E4E400625A04 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829A12595E4E400625A04 /* Config.swift */; };
+		0A9829A22595E4E400625A04 /* NorminetteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829A12595E4E400625A04 /* NorminetteConfig.swift */; };
+		0AB1D7C125962F35009840C1 /* NorminetteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1D7C025962F35009840C1 /* NorminetteError.swift */; };
 		0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC5C21B2593C8F600BA1AAB /* ArgumentParser */; };
 		0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5C2202593D4FD00BA1AAB /* Norminette.swift */; };
-		E8F59044F493BF2F16A00BDF /* libPods-NorminetteLint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11D462C20232311C5BD833B /* libPods-NorminetteLint.a */; };
+		2B7799C314167683292C5AD1 /* Pods_NorminetteLint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9E17ECD281C12B19CE85B4 /* Pods_NorminetteLint.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,11 +40,12 @@
 		0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteCheckRequest.swift; sourceTree = "<group>"; };
 		0A98299A2595E22C00625A04 /* NorminetteReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteReply.swift; sourceTree = "<group>"; };
 		0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteActionReply.swift; sourceTree = "<group>"; };
-		0A9829A12595E4E400625A04 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		0A9829A12595E4E400625A04 /* NorminetteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteConfig.swift; sourceTree = "<group>"; };
+		0AB1D7C025962F35009840C1 /* NorminetteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteError.swift; sourceTree = "<group>"; };
 		0AC5C2202593D4FD00BA1AAB /* Norminette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Norminette.swift; sourceTree = "<group>"; };
 		76EDE8BB6682AD07CC67FC42 /* Pods-NorminetteLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.debug.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.debug.xcconfig"; sourceTree = "<group>"; };
-		C11D462C20232311C5BD833B /* libPods-NorminetteLint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NorminetteLint.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77260A3B7B8C20B4CBD0ED9 /* Pods-NorminetteLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.release.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.release.xcconfig"; sourceTree = "<group>"; };
+		EC9E17ECD281C12B19CE85B4 /* Pods_NorminetteLint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NorminetteLint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,7 @@
 			files = (
 				0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */,
 				0A9829832592987D00625A04 /* Yams in Frameworks */,
-				E8F59044F493BF2F16A00BDF /* libPods-NorminetteLint.a in Frameworks */,
+				2B7799C314167683292C5AD1 /* Pods_NorminetteLint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC5C2202593D4FD00BA1AAB /* Norminette.swift */,
+				0AB1D7C025962F35009840C1 /* NorminetteError.swift */,
 				0A9829972595E22C00625A04 /* Model */,
 			);
 			path = NorminetteLint;
@@ -93,7 +96,7 @@
 				0A9829732592954900625A04 /* CocoaAsyncSocket.framework */,
 				0A9829722592954900625A04 /* JKVValue.framework */,
 				0A9829712592954900625A04 /* RMQClient.framework */,
-				C11D462C20232311C5BD833B /* libPods-NorminetteLint.a */,
+				EC9E17ECD281C12B19CE85B4 /* Pods_NorminetteLint.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,7 +108,7 @@
 				0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */,
 				0A98299A2595E22C00625A04 /* NorminetteReply.swift */,
 				0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */,
-				0A9829A12595E4E400625A04 /* Config.swift */,
+				0A9829A12595E4E400625A04 /* NorminetteConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,9 +217,10 @@
 				0A98299C2595E22C00625A04 /* NorminetteActionRequest.swift in Sources */,
 				0A98299E2595E22C00625A04 /* NorminetteReply.swift in Sources */,
 				0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */,
+				0AB1D7C125962F35009840C1 /* NorminetteError.swift in Sources */,
 				0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */,
 				0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */,
-				0A9829A22595E4E400625A04 /* Config.swift in Sources */,
+				0A9829A22595E4E400625A04 /* NorminetteConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

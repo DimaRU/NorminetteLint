@@ -5,6 +5,9 @@
 
 import Foundation
 import ArgumentParser
+import Yams
+
+fileprivate let configFileName = ".norminette.yml"
 
 @main
 struct Norminette: ParsableCommand {
@@ -23,11 +26,12 @@ struct Norminette: ParsableCommand {
     var warnings = false
 
     @Option(name: .shortAndLong, help: "The path to the NorminetteLint configuration file")
-    var config: String = FileManager.default.currentDirectoryPath + "/.norminette.yml"
+    var config: String?
     
     mutating func run() throws {
+        let fileManager = FileManager.default
         if files.isEmpty {
-            let path = FileManager.default.currentDirectoryPath
+            let path = fileManager.currentDirectoryPath
             files.append(path)
         }
         let command: Command
@@ -38,7 +42,28 @@ struct Norminette: ParsableCommand {
         } else {
             command = .check
         }
-        print(command, self)
+        if config == nil {
+            config = URL(fileURLWithPath: fileManager.currentDirectoryPath).appendingPathComponent(configFileName).path
+            if !fileManager.fileExists(atPath: config!) {
+                config = fileManager.homeDirectoryForCurrentUser.appendingPathComponent(configFileName).path
+                if !fileManager.fileExists(atPath: config!) {
+                    throw NorminetteError.badConfig(message: "Config file \(configFileName) not found in current or home directory.")
+                }
+            }
+        } else {
+            if !fileManager.fileExists(atPath: config!) {
+                throw NorminetteError.badConfig(message: "Config file \(config!) not found.")
+            }
+        }
+        let configURL = URL(fileURLWithPath: config!)
+        do {
+            let configText = try String(contentsOf: configURL)
+            let decoder = YAMLDecoder()
+            let norminetteConfig = try decoder.decode(NorminetteConfig.self, from: configText, userInfo: [:])
+            print(norminetteConfig)
+        } catch {
+            throw NorminetteError.badConfig(message: "Invalid config file \(config!): \(error.localizedDescription)")
+        }
     }
 }
 
