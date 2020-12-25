@@ -14,7 +14,6 @@ class NorminetteLint {
     var config: NorminetteConfig
     var semaphore = DispatchSemaphore(value: 0)
     
-    var enumerator: FileManager.DirectoryEnumerator?
     let resourceKeys: Set<URLResourceKey> = [.nameKey, .pathKey, .isRegularFileKey]
     let enabledExtensions = Set<String>(["c", "h"])
 
@@ -41,9 +40,9 @@ class NorminetteLint {
             let request = NorminetteActionRequest(action: "help")
             try showInfo(request)
         case .check:
-            try check(args: files)
+            try check(paths: files)
         }
-        if foundErrors {
+        if foundErrors, !(config.warnings ?? false) {
             throw NorminetteError.checkError
         }
     }
@@ -58,23 +57,33 @@ class NorminetteLint {
         }
     }
     
-    private func check(args: [String]) throws {
+    private func check(paths: [String]) throws {
         rmqChannel.basicConsume(rmwQueue.name, acknowledgementMode: .auto, handler: checkReplyHandler(_:))
         let manager = FileManager.default
-        for arg in args {
-            let url = URL(fileURLWithPath: arg)
-            enumerator = manager.enumerator(at: url,
-                                            includingPropertiesForKeys: Array(resourceKeys),
-                                            options: [.skipsHiddenFiles, .skipsPackageDescendants]) { (url, error) -> Bool in
-                print(url.path, error.localizedDescription)
-                return true
+        for path in paths {
+            var isDirectory: ObjCBool = false
+            if !manager.fileExists(atPath: path, isDirectory: &isDirectory) {
+                print("File not found \(path)")
+                continue
             }
-            processNextFile()
-            semaphore.wait()
+            let url = URL(fileURLWithPath: path)
+            if isDirectory.boolValue {
+                let enumerator = manager.enumerator(at: url,
+                                                    includingPropertiesForKeys: Array(resourceKeys),
+                                                    options: [.skipsHiddenFiles, .skipsPackageDescendants]) { (url, error) -> Bool in
+                    print(url.path, error.localizedDescription)
+                    return true
+                }
+                if let enumerator = enumerator {
+                    processDirectory(enumerator)
+                }
+            } else {
+                processFile(url: url)
+            }
         }
     }
     
-    private func processNextFile() {
+    private func processDirectory(_ enumerator: FileManager.DirectoryEnumerator?) {
         guard let enumerator = enumerator else { return }
         while let file = enumerator.nextObject() {
             if let url = file as? URL,
@@ -83,11 +92,8 @@ class NorminetteLint {
                isRegularFile,
                enabledExtensions.contains(url.pathExtension) {
                 processFile(url: url)
-                return
             }
         }
-        // No more files, end of task
-        semaphore.signal()
     }
 
     private func processFile(url: URL) {
@@ -99,6 +105,9 @@ class NorminetteLint {
             let body = try! encoder.encode(request)
             publish(body)
             print("Check file:", url.lastPathComponent)
+            if semaphore.wait(timeout: .now() + 30) == .timedOut {
+                print("Server reply timeout")
+            }
         } catch {
             print(error)
         }
@@ -133,14 +142,14 @@ class NorminetteLint {
         let decoder = JSONDecoder()
         do {
             let reply = try decoder.decode(NorminetteReply.self, from: body)
-            processReply(reply)
+            parseReply(reply)
         } catch {
             print(error)
         }
-        processNextFile()
+        semaphore.signal()
     }
     
-    private func processReply(_ reply: NorminetteReply) {
+    private func parseReply(_ reply: NorminetteReply) {
         let fileName = reply.filename
         if reply.errors.count != 0 {
             foundErrors = true
@@ -148,7 +157,11 @@ class NorminetteLint {
         for error in reply.errors {
             let line = error.line ?? 1
             let col = error.col ?? 0
-            print("\(fileName):\(line):\(col): error:", error.reason)
+            if config.warnings ?? false {
+                print("\(fileName):\(line):\(col): warning:", error.reason)
+            } else {
+                print("\(fileName):\(line):\(col): error:", error.reason)
+            }
         }
     }
 }

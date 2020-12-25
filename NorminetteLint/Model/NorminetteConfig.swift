@@ -10,5 +10,6 @@ struct NorminetteConfig: Codable {
     let hostname: String
     let user: String
     let password: String
+    var warnings: Bool?
     let disabledRules: [String]?
 }

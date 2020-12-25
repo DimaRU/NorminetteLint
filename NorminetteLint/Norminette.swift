@@ -29,12 +29,14 @@ struct Norminette: ParsableCommand {
     var config: String?
     
     mutating func run() throws {
+        var norminetteConfig: NorminetteConfig
+        let command: Command
+
         let fileManager = FileManager.default
         if files.isEmpty {
             let path = fileManager.currentDirectoryPath
             files.append(path)
         }
-        let command: Command
         if version {
             command = .version
         } else if rulesList {
@@ -55,14 +57,18 @@ struct Norminette: ParsableCommand {
                 throw NorminetteError.badConfig(message: "Config file \(config!) not found.")
             }
         }
+        
         let configURL = URL(fileURLWithPath: config!)
-        let norminetteConfig: NorminetteConfig
         do {
             let configText = try String(contentsOf: configURL)
             let decoder = YAMLDecoder()
             norminetteConfig = try decoder.decode(NorminetteConfig.self, from: configText, userInfo: [:])
         } catch {
             throw NorminetteError.badConfig(message: "Invalid config file \(config!): \(error.localizedDescription)")
+        }
+        
+        if warnings {
+            norminetteConfig.warnings = true
         }
         
         let lint = NorminetteLint(config: norminetteConfig)
