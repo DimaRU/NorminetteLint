@@ -12,6 +12,7 @@
 		0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */; };
 		0A98299E2595E22C00625A04 /* NorminetteReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98299A2595E22C00625A04 /* NorminetteReply.swift */; };
 		0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */; };
+		0A9829A22595E4E400625A04 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829A12595E4E400625A04 /* Config.swift */; };
 		0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC5C21B2593C8F600BA1AAB /* ArgumentParser */; };
 		0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5C2202593D4FD00BA1AAB /* Norminette.swift */; };
 		E8F59044F493BF2F16A00BDF /* libPods-NorminetteLint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11D462C20232311C5BD833B /* libPods-NorminetteLint.a */; };
@@ -38,6 +39,7 @@
 		0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteCheckRequest.swift; sourceTree = "<group>"; };
 		0A98299A2595E22C00625A04 /* NorminetteReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteReply.swift; sourceTree = "<group>"; };
 		0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteActionReply.swift; sourceTree = "<group>"; };
+		0A9829A12595E4E400625A04 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0AC5C2202593D4FD00BA1AAB /* Norminette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Norminette.swift; sourceTree = "<group>"; };
 		76EDE8BB6682AD07CC67FC42 /* Pods-NorminetteLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.debug.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.debug.xcconfig"; sourceTree = "<group>"; };
 		C11D462C20232311C5BD833B /* libPods-NorminetteLint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NorminetteLint.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				0A9829992595E22C00625A04 /* NorminetteCheckRequest.swift */,
 				0A98299A2595E22C00625A04 /* NorminetteReply.swift */,
 				0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */,
+				0A9829A12595E4E400625A04 /* Config.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */,
 				0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */,
 				0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */,
+				0A9829A22595E4E400625A04 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
