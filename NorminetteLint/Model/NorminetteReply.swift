@@ -5,8 +5,8 @@
 
 import Foundation
 
-struct NorminetteReply: Codable {
-    struct NorminetteError: Codable {
+struct NorminetteReply: Decodable {
+    struct NorminetteError: Decodable {
         let line: Int?
         let col: Int?
         let reason: String

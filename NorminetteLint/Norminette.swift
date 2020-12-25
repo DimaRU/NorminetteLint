@@ -38,7 +38,7 @@ struct Norminette: ParsableCommand {
         if version {
             command = .version
         } else if rulesList {
-            command = .version
+            command = .rules
         } else {
             command = .check
         }
@@ -56,14 +56,17 @@ struct Norminette: ParsableCommand {
             }
         }
         let configURL = URL(fileURLWithPath: config!)
+        let norminetteConfig: NorminetteConfig
         do {
             let configText = try String(contentsOf: configURL)
             let decoder = YAMLDecoder()
-            let norminetteConfig = try decoder.decode(NorminetteConfig.self, from: configText, userInfo: [:])
-            print(norminetteConfig)
+            norminetteConfig = try decoder.decode(NorminetteConfig.self, from: configText, userInfo: [:])
         } catch {
             throw NorminetteError.badConfig(message: "Invalid config file \(config!): \(error.localizedDescription)")
         }
+        
+        let lint = NorminetteLint(config: norminetteConfig)
+        try lint.execute(command: command, files: files)
     }
 }
 

@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct NorminetteActionReply {
+struct NorminetteActionReply: Decodable {
     let display: String
     let stop: Bool
 }

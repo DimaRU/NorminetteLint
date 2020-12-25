@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct NorminetteCheckRequest: Codable {
+struct NorminetteCheckRequest: Encodable {
     let filename: String
     let content: String
     let rules: [String]

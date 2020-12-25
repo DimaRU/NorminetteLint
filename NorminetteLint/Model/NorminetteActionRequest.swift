@@ -5,6 +5,6 @@
 
 import Foundation
 
-struct NorminetteActionRequest {
+struct NorminetteActionRequest: Encodable {
     let action: String
 }

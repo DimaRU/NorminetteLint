@@ -16,6 +16,7 @@
 		0AB1D7C125962F35009840C1 /* NorminetteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1D7C025962F35009840C1 /* NorminetteError.swift */; };
 		0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC5C21B2593C8F600BA1AAB /* ArgumentParser */; };
 		0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5C2202593D4FD00BA1AAB /* Norminette.swift */; };
+		0ADD80D52596367E00562A56 /* NorminetteLint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD80D42596367E00562A56 /* NorminetteLint.swift */; };
 		2B7799C314167683292C5AD1 /* Pods_NorminetteLint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9E17ECD281C12B19CE85B4 /* Pods_NorminetteLint.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		0A9829A12595E4E400625A04 /* NorminetteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteConfig.swift; sourceTree = "<group>"; };
 		0AB1D7C025962F35009840C1 /* NorminetteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteError.swift; sourceTree = "<group>"; };
 		0AC5C2202593D4FD00BA1AAB /* Norminette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Norminette.swift; sourceTree = "<group>"; };
+		0ADD80D42596367E00562A56 /* NorminetteLint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteLint.swift; sourceTree = "<group>"; };
 		76EDE8BB6682AD07CC67FC42 /* Pods-NorminetteLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.debug.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.debug.xcconfig"; sourceTree = "<group>"; };
 		D77260A3B7B8C20B4CBD0ED9 /* Pods-NorminetteLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.release.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.release.xcconfig"; sourceTree = "<group>"; };
 		EC9E17ECD281C12B19CE85B4 /* Pods_NorminetteLint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NorminetteLint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC5C2202593D4FD00BA1AAB /* Norminette.swift */,
+				0ADD80D42596367E00562A56 /* NorminetteLint.swift */,
 				0AB1D7C025962F35009840C1 /* NorminetteError.swift */,
 				0A9829972595E22C00625A04 /* Model */,
 			);
@@ -217,6 +220,7 @@
 				0A98299C2595E22C00625A04 /* NorminetteActionRequest.swift in Sources */,
 				0A98299E2595E22C00625A04 /* NorminetteReply.swift in Sources */,
 				0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */,
+				0ADD80D52596367E00562A56 /* NorminetteLint.swift in Sources */,
 				0AB1D7C125962F35009840C1 /* NorminetteError.swift in Sources */,
 				0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */,
 				0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */,
