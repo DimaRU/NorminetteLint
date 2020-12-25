@@ -31,7 +31,7 @@ class NorminetteLint {
         rmqConnection.close()
     }
 
-    func execute(command: Norminette.Command, files: [String]) throws {
+    func execute(command: Norminette.Command, paths: [String]) throws {
         switch command {
         case .version:
             let request = NorminetteActionRequest(action: "version")
@@ -40,7 +40,7 @@ class NorminetteLint {
             let request = NorminetteActionRequest(action: "help")
             try showInfo(request)
         case .check:
-            try check(paths: files)
+            try check(paths)
         }
         if foundErrors, !(config.warnings ?? false) {
             throw NorminetteError.checkError
@@ -57,7 +57,7 @@ class NorminetteLint {
         }
     }
     
-    private func check(paths: [String]) throws {
+    private func check(_ paths: [String]) throws {
         rmqChannel.basicConsume(rmwQueue.name, acknowledgementMode: .auto, handler: checkReplyHandler(_:))
         let manager = FileManager.default
         for path in paths {

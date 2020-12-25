@@ -33,7 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A98295C2592918500625A04 /* NorminetteLint */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NorminetteLint; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A98295C2592918500625A04 /* norminettelint */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = norminettelint; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9829712592954900625A04 /* RMQClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RMQClient.framework; path = Carthage/Build/Mac/RMQClient.framework; sourceTree = "<group>"; };
 		0A9829722592954900625A04 /* JKVValue.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JKVValue.framework; path = Carthage/Build/Mac/JKVValue.framework; sourceTree = "<group>"; };
 		0A9829732592954900625A04 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		0A98295D2592918500625A04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A98295C2592918500625A04 /* NorminetteLint */,
+				0A98295C2592918500625A04 /* norminettelint */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,7 +147,7 @@
 				0AC5C21B2593C8F600BA1AAB /* ArgumentParser */,
 			);
 			productName = NorminetteLint;
-			productReference = 0A98295C2592918500625A04 /* NorminetteLint */;
+			productReference = 0A98295C2592918500625A04 /* norminettelint */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -360,7 +360,7 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.ioshack.NorminetteLinter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = norminettelint;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -380,7 +380,7 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.ioshack.NorminetteLinter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = norminettelint;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

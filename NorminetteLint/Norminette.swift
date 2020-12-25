@@ -14,7 +14,8 @@ struct Norminette: ParsableCommand {
     enum Command {
         case version, rules, check
     }
-    @Argument var files: [String] = []
+    @Argument(help: "Path to directory or file")
+    var path: [String] = []
     
     @Flag(name: .shortAndLong, help: "Display the current version of NorminetteLint")
     var version = false
@@ -33,9 +34,8 @@ struct Norminette: ParsableCommand {
         let command: Command
 
         let fileManager = FileManager.default
-        if files.isEmpty {
-            let path = fileManager.currentDirectoryPath
-            files.append(path)
+        if path.isEmpty {
+            path.append(fileManager.currentDirectoryPath)
         }
         if version {
             command = .version
@@ -72,7 +72,7 @@ struct Norminette: ParsableCommand {
         }
         
         let lint = NorminetteLint(config: norminetteConfig)
-        try lint.execute(command: command, files: files)
+        try lint.execute(command: command, paths: path)
     }
 }
 
