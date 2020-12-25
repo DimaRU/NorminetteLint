@@ -1,0 +1,1 @@
+../../../RMQClient/RMQClient/RMQConnectionConfig.h

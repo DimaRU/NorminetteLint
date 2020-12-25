@@ -1,0 +1,1 @@
+../../../RMQClient/RMQClient/RMQMethods+Convenience.h
