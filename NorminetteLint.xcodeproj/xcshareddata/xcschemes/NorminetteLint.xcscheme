@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A98295B2592918500625A04"
-               BuildableName = "NorminetteLint"
+               BuildableName = "norminettelint"
                BlueprintName = "NorminetteLint"
                ReferencedContainer = "container:NorminetteLint.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A98295B2592918500625A04"
-            BuildableName = "NorminetteLint"
+            BuildableName = "norminettelint"
             BlueprintName = "NorminetteLint"
             ReferencedContainer = "container:NorminetteLint.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A98295B2592918500625A04"
-            BuildableName = "NorminetteLint"
+            BuildableName = "norminettelint"
             BlueprintName = "NorminetteLint"
             ReferencedContainer = "container:NorminetteLint.xcodeproj">
          </BuildableReference>

@@ -7,26 +7,32 @@ import Foundation
 import ArgumentParser
 import Yams
 
-fileprivate let configFileName = ".norminette.yml"
+fileprivate let configFileName = ".norminettelint.yml"
 
 @main
 struct Norminette: ParsableCommand {
     enum Command {
         case version, rules, check
     }
-    @Argument(help: "Path to directory or file")
+
+    static var configuration = CommandConfiguration(commandName: "norminettelint",
+                                                    abstract: "norminette linter for Xcode.",
+                                                    version: "0.0.1")
+    @Argument(help: "Path to directory or file.")
     var path: [String] = []
     
-    @Flag(name: .shortAndLong, help: "Display the current version of NorminetteLint")
+    @Flag(name: .shortAndLong, help: "Display version of the remote nominette server.")
     var version = false
     
-    @Flag(name: .long, help: "Display rules list")
+    @Flag(name: .long, help: "Display rules list.")
     var rulesList = false
     
-    @Flag(name: .shortAndLong, help: "Downgrades errors to warnings")
+    @Flag(name: .shortAndLong, help: "Downgrades errors to warnings.")
     var warnings = false
 
-    @Option(name: .shortAndLong, help: "The path to the NorminetteLint configuration file")
+    @Option(name: .shortAndLong, help: ArgumentHelp("The path to the configuration file.",
+                                                    discussion: "By default, .norminettelint.yml searched on current directory and then on home directory.",
+                                                    valueName: "path"))
     var config: String?
     
     mutating func run() throws {

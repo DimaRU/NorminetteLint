@@ -12,6 +12,6 @@ struct NorminetteReply: Decodable {
         let reason: String
     }
     let filename: String
-    let display: String
+    let display: String?
     let errors: [NorminetteError]
 }
