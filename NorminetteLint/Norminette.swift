@@ -1,6 +1,6 @@
 /////
 ////  Norminette.swift
-///   Copyright © 2020 Dmitriy Borovikov. All rights reserved.
+///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
 import Foundation
@@ -20,14 +20,17 @@ struct Norminette: ParsableCommand {
                                                     version: "0.0.1")
     @Argument(help: "Path to directory or file.")
     var path: [String] = []
-    
+
+    @Flag(name: .shortAndLong, help: "Add norminettelint run script to Xcode project")
+    var setupXcodeProj = false
+
     @Flag(name: .shortAndLong, help: "Display version of the remote nominette server.")
     var version = false
     
     @Flag(name: .long, help: "Display rules list.")
     var rulesList = false
     
-    @Flag(name: .shortAndLong, help: "Downgrades errors to warnings.")
+    @Flag(name: .shortAndLong, help: "Downgrade errors to warnings.")
     var warnings = false
 
     @Option(name: .shortAndLong, help: ArgumentHelp("The path to the configuration file.",
@@ -50,6 +53,13 @@ struct Norminette: ParsableCommand {
         } else {
             command = .check
         }
+
+        if setupXcodeProj {
+            let setupXcodeProj = SetupXcodeProj()
+            try setupXcodeProj.addRunScript(path: path.first!)
+            return
+        }
+
         if config == nil {
             config = URL(fileURLWithPath: fileManager.currentDirectoryPath).appendingPathComponent(configFileName).path
             if !fileManager.fileExists(atPath: config!) {
@@ -81,5 +91,3 @@ struct Norminette: ParsableCommand {
         try lint.execute(command: command, paths: path)
     }
 }
-
-

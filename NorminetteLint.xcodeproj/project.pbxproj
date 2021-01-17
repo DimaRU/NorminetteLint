@@ -14,6 +14,8 @@
 		0A98299F2595E22C00625A04 /* NorminetteActionReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */; };
 		0A9829A22595E4E400625A04 /* NorminetteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9829A12595E4E400625A04 /* NorminetteConfig.swift */; };
 		0AB1D7C125962F35009840C1 /* NorminetteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1D7C025962F35009840C1 /* NorminetteError.swift */; };
+		0AC23E9125B393DB0062C739 /* XcodeProj in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC23E9025B393DB0062C739 /* XcodeProj */; };
+		0AC23E9425B396090062C739 /* SetupXcodeProj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC23E9325B396090062C739 /* SetupXcodeProj.swift */; };
 		0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC5C21B2593C8F600BA1AAB /* ArgumentParser */; };
 		0AC5C2212593D4FD00BA1AAB /* Norminette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5C2202593D4FD00BA1AAB /* Norminette.swift */; };
 		0ADD80D52596367E00562A56 /* NorminetteLint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD80D42596367E00562A56 /* NorminetteLint.swift */; };
@@ -43,6 +45,7 @@
 		0A98299B2595E22C00625A04 /* NorminetteActionReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorminetteActionReply.swift; sourceTree = "<group>"; };
 		0A9829A12595E4E400625A04 /* NorminetteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteConfig.swift; sourceTree = "<group>"; };
 		0AB1D7C025962F35009840C1 /* NorminetteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteError.swift; sourceTree = "<group>"; };
+		0AC23E9325B396090062C739 /* SetupXcodeProj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupXcodeProj.swift; sourceTree = "<group>"; };
 		0AC5C2202593D4FD00BA1AAB /* Norminette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Norminette.swift; sourceTree = "<group>"; };
 		0ADD80D42596367E00562A56 /* NorminetteLint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorminetteLint.swift; sourceTree = "<group>"; };
 		76EDE8BB6682AD07CC67FC42 /* Pods-NorminetteLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NorminetteLint.debug.xcconfig"; path = "Target Support Files/Pods-NorminetteLint/Pods-NorminetteLint.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 				0AC5C21C2593C8F600BA1AAB /* ArgumentParser in Frameworks */,
 				0A9829832592987D00625A04 /* Yams in Frameworks */,
 				2B7799C314167683292C5AD1 /* Pods_NorminetteLint.framework in Frameworks */,
+				0AC23E9125B393DB0062C739 /* XcodeProj in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC5C2202593D4FD00BA1AAB /* Norminette.swift */,
+				0AC23E9325B396090062C739 /* SetupXcodeProj.swift */,
 				0ADD80D42596367E00562A56 /* NorminetteLint.swift */,
 				0AB1D7C025962F35009840C1 /* NorminetteError.swift */,
 				0A9829972595E22C00625A04 /* Model */,
@@ -145,6 +150,7 @@
 			packageProductDependencies = (
 				0A9829822592987D00625A04 /* Yams */,
 				0AC5C21B2593C8F600BA1AAB /* ArgumentParser */,
+				0AC23E9025B393DB0062C739 /* XcodeProj */,
 			);
 			productName = NorminetteLint;
 			productReference = 0A98295C2592918500625A04 /* norminettelint */;
@@ -177,6 +183,7 @@
 			packageReferences = (
 				0A9829812592987D00625A04 /* XCRemoteSwiftPackageReference "Yams" */,
 				0AC5C21A2593C8F600BA1AAB /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				0AC23E8F25B393DB0062C739 /* XCRemoteSwiftPackageReference "XcodeProj" */,
 			);
 			productRefGroup = 0A98295D2592918500625A04 /* Products */;
 			projectDirPath = "";
@@ -218,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A98299C2595E22C00625A04 /* NorminetteActionRequest.swift in Sources */,
+				0AC23E9425B396090062C739 /* SetupXcodeProj.swift in Sources */,
 				0A98299E2595E22C00625A04 /* NorminetteReply.swift in Sources */,
 				0A98299D2595E22C00625A04 /* NorminetteCheckRequest.swift in Sources */,
 				0ADD80D52596367E00562A56 /* NorminetteLint.swift in Sources */,
@@ -417,6 +425,14 @@
 				minimumVersion = 4.0.3;
 			};
 		};
+		0AC23E8F25B393DB0062C739 /* XCRemoteSwiftPackageReference "XcodeProj" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tuist/XcodeProj";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.18.0;
+			};
+		};
 		0AC5C21A2593C8F600BA1AAB /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
@@ -432,6 +448,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A9829812592987D00625A04 /* XCRemoteSwiftPackageReference "Yams" */;
 			productName = Yams;
+		};
+		0AC23E9025B393DB0062C739 /* XcodeProj */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC23E8F25B393DB0062C739 /* XCRemoteSwiftPackageReference "XcodeProj" */;
+			productName = XcodeProj;
 		};
 		0AC5C21B2593C8F600BA1AAB /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;

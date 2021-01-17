@@ -1,6 +1,6 @@
 /////
 ////  NorminetteActionReply.swift
-///   Copyright © 2020 Dmitriy Borovikov. All rights reserved.
+///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
 import Foundation
