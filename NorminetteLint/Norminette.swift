@@ -17,7 +17,7 @@ struct Norminette: ParsableCommand {
 
     static var configuration = CommandConfiguration(commandName: "norminettelint",
                                                     abstract: "norminette linter for Xcode.",
-                                                    version: "0.0.1")
+                                                    version: "1.1.0")
     @Argument(help: "Path to directory or file.")
     var path: [String] = []
 
@@ -56,7 +56,7 @@ struct Norminette: ParsableCommand {
 
         if setupXcodeProj {
             let setupXcodeProj = SetupXcodeProj()
-            try setupXcodeProj.addRunScript(path: path.first!)
+            try setupXcodeProj.addRunScript(path: path.first!, runPath: CommandLine.arguments[0])
             return
         }
 

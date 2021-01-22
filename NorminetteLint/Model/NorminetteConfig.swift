@@ -11,5 +11,5 @@ struct NorminetteConfig: Codable {
     let user: String
     let password: String
     var warnings: Bool?
-    let disabledRules: [String]?
+    let specialRules: [String]?
 }

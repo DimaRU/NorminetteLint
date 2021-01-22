@@ -100,7 +100,7 @@ class NorminetteLint {
         do {
             let content = try String(contentsOf: url)
             let path = url.path
-            let request = NorminetteCheckRequest(filename: path, content: content, rules: config.disabledRules ?? [])
+            let request = NorminetteCheckRequest(filename: path, content: content, rules: config.specialRules ?? [])
             let encoder = JSONEncoder()
             let body = try! encoder.encode(request)
             publish(body)

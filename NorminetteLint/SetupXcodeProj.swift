@@ -10,7 +10,7 @@ import PathKit
 struct SetupXcodeProj {
     let norminettePhaseName = "Norminettelint run script"
 
-    func addRunScript(path: String) throws {
+    func addRunScript(path: String, runPath: String) throws {
         let xcodeprojPath: String
         if path.hasSuffix(".xcodeproj") {
             xcodeprojPath = path
@@ -34,10 +34,7 @@ struct SetupXcodeProj {
             throw NorminetteError.scriptAlreadyExist
         }
 
-        let script = """
-        # Norminette check script
-        norminettelint
-        """
+        let script = "# Norminette check script\n" + runPath + "\n"
         let phase = PBXShellScriptBuildPhase(name: norminettePhaseName,
                                              shellPath: "/bin/sh",
                                              shellScript: script)
