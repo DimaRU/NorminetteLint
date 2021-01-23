@@ -16,14 +16,18 @@ class NorminetteLint {
     
     let resourceKeys: Set<URLResourceKey> = [.nameKey, .pathKey, .isRegularFileKey]
     let enabledExtensions = Set<String>(["c", "h"])
+    var skipFiles: [String] = []
 
-    init(config: NorminetteConfig) {
+    init(config: NorminetteConfig, skip: String?) {
         self.config = config
         let delegate = RMQConnectionDelegateLogger()
         rmqConnection = RMQConnection(uri: "amqp://\(config.user):\(config.password)@\(config.hostname)", delegate: delegate)
         rmqConnection.start()
         rmqChannel = rmqConnection.createChannel()
         rmwQueue = rmqChannel.queue("", options: [.exclusive])
+        if let skip = skip {
+            skipFiles.append(skip)
+        }
     }
     
     deinit {
@@ -90,6 +94,7 @@ class NorminetteLint {
                let resourceValues = try? url.resourceValues(forKeys: resourceKeys),
                let isRegularFile = resourceValues.isRegularFile,
                isRegularFile,
+               !skipFiles.contains(url.lastPathComponent),
                enabledExtensions.contains(url.pathExtension) {
                 processFile(url: url)
             }

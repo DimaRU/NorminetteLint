@@ -37,7 +37,10 @@ struct Norminette: ParsableCommand {
                                                     discussion: "By default, .norminettelint.yml searched on current directory and then on home directory.",
                                                     valueName: "path"))
     var config: String?
-    
+
+    @Option(name: .long, help: ArgumentHelp("Skip file check.", valueName: "file"))
+    var skip: String?
+
     mutating func run() throws {
         var norminetteConfig: NorminetteConfig
         let command: Command
@@ -87,7 +90,7 @@ struct Norminette: ParsableCommand {
             norminetteConfig.warnings = true
         }
         
-        let lint = NorminetteLint(config: norminetteConfig)
+        let lint = NorminetteLint(config: norminetteConfig, skip: skip)
         try lint.execute(command: command, paths: path)
     }
 }
