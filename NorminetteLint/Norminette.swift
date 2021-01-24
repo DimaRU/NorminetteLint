@@ -59,7 +59,7 @@ struct Norminette: ParsableCommand {
 
         if setupXcodeProj {
             let setupXcodeProj = SetupXcodeProj()
-            try setupXcodeProj.addRunScript(path: path.first!, runPath: CommandLine.arguments[0])
+            try setupXcodeProj.addRunScript(path: path.first!)
             return
         }
 
