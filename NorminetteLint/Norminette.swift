@@ -38,8 +38,8 @@ struct Norminette: ParsableCommand {
                                                     valueName: "path"))
     var config: String?
 
-    @Option(name: .long, help: ArgumentHelp("Skip file check.", valueName: "file"))
-    var skip: String?
+    @Option(name: [.customShort("x"), .long], help: ArgumentHelp("Exclude file from check.", valueName: "file"))
+    var exclude: [String]
 
     mutating func run() throws {
         var norminetteConfig: NorminetteConfig
@@ -90,7 +90,7 @@ struct Norminette: ParsableCommand {
             norminetteConfig.warnings = true
         }
         
-        let lint = NorminetteLint(config: norminetteConfig, skip: skip)
+        let lint = NorminetteLint(config: norminetteConfig, skip: exclude)
         try lint.execute(command: command, paths: path)
     }
 }
