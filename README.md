@@ -13,7 +13,7 @@ Requires Xcode 12.
 ## Usage
 
 ```
-USAGE: norminettelint [<path> ...] [--setup-xcode-proj] [--version] [--rules-list] [--warnings] [--config <path>]
+USAGE: norminettelint [<path> ...] [--setup-xcode-proj] [--version] [--rules-list] [--warnings] [--config <path>] [--exclude <file> ...]
 
 ARGUMENTS:
   <path>                  Path to directory or file. 
@@ -26,6 +26,7 @@ OPTIONS:
   -c, --config <path>     The path to the configuration file. 
         By default, .norminettelint.yml searched on current directory and then
         on home directory.
+  -x, --exclude <file>    Exclude file from check. 
   --version               Show the version.
   -h, --help              Show help information.
 ```
@@ -47,11 +48,22 @@ norminetteint -w
 ```
 Threat errors as warnings.
 
+```
+norminetteint -s project
+```
+Setup Xcode project in `project` folder for check with norminettelint. Also set indent using tabs.
+
+```
+norminetteint -x main.c -x ft_proj.h 
+```
+Exclude main.c and ft_proj.h from check.
+
+
 ## Configuration file example:
 ```yml
 hostname: norminette.42network.org
 user: guest
 password: guest
 warnings: false
-disabledRules: []
+specialRules: []
 ```
