@@ -26,6 +26,15 @@ struct SetupXcodeProj {
         let xcodeproj = try XcodeProj(path: projectPath)
         let pbxproj = xcodeproj.pbxproj
 
+        var fileElement = pbxproj.fileReferences.first as PBXFileElement?
+        while fileElement?.parent != nil {
+            fileElement = fileElement?.parent
+        }
+        if let fileElement = fileElement {
+            fileElement.usesTabs = true
+            fileElement.tabWidth = 4
+            fileElement.indentWidth = 4
+        }
         guard let target = pbxproj.nativeTargets.first else {
             throw NorminetteError.invalidXcodeProj
         }
