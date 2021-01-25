@@ -39,7 +39,7 @@ struct Norminette: ParsableCommand {
     var config: String?
 
     @Option(name: [.customShort("x"), .long], help: ArgumentHelp("Exclude file from check.", valueName: "file"))
-    var exclude: [String]
+    var exclude: [String] = []
 
     mutating func run() throws {
         var norminetteConfig: NorminetteConfig
