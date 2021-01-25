@@ -24,8 +24,8 @@ struct Norminette: ParsableCommand {
     @Flag(name: .shortAndLong, help: "Add norminettelint run script to Xcode project")
     var setupXcodeProj = false
 
-    @Flag(name: .shortAndLong, help: "Display version of the remote nominette server.")
-    var version = false
+    @Flag(name: .long, help: "Display version of the remote nominette server.")
+    var remote = false
     
     @Flag(name: .long, help: "Display rules list.")
     var rulesList = false
@@ -49,7 +49,7 @@ struct Norminette: ParsableCommand {
         if path.isEmpty {
             path.append(fileManager.currentDirectoryPath)
         }
-        if version {
+        if remote {
             command = .version
         } else if rulesList {
             command = .rules
