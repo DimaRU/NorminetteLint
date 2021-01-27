@@ -17,7 +17,7 @@ struct Norminette: ParsableCommand {
 
     static var configuration = CommandConfiguration(commandName: "norminettelint",
                                                     abstract: "norminette linter for Xcode.",
-                                                    version: "1.1.0")
+                                                    version: "1.2.0")
     @Argument(help: "Path to directory or file.")
     var path: [String] = []
 

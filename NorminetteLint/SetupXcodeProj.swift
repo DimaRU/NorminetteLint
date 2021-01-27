@@ -35,20 +35,30 @@ struct SetupXcodeProj {
             fileElement.tabWidth = 4
             fileElement.indentWidth = 4
         }
-        guard let target = pbxproj.nativeTargets.first else {
+        for configuration in pbxproj.buildConfigurations where configuration.buildSettings["PRODUCT_NAME"] == nil {
+            configuration.buildSettings["WARNING_CFLAGS"] = ["-Wall", "-Wextra"]
+        }
+        guard !pbxproj.nativeTargets.isEmpty else {
             throw NorminetteError.invalidXcodeProj
         }
-
-        guard target.buildPhases.first(where: { ($0 as? PBXShellScriptBuildPhase)?.name == norminettePhaseName }) == nil else {
-            throw NorminetteError.scriptAlreadyExist
+        var path = (Bundle.main.executablePath ?? "norminettelint")
+        if path.hasPrefix(FileManager.default.homeDirectoryForCurrentUser.path) {
+            path = path.replacingOccurrences(of: FileManager.default.homeDirectoryForCurrentUser.path, with: "~")
         }
+        let script = "# Norminette check script\n" + path + "\n"
 
-        let script = "# Norminette check script\n" + (Bundle.main.executablePath ?? "norminettelint") + "\n"
-        let phase = PBXShellScriptBuildPhase(name: norminettePhaseName,
-                                             shellPath: "/bin/sh",
-                                             shellScript: script)
-        target.buildPhases.append(phase)
-        pbxproj.add(object: phase)
+        for target in pbxproj.nativeTargets {
+            guard target.buildPhases.first(where: { ($0 as? PBXShellScriptBuildPhase)?.name == norminettePhaseName }) == nil else {
+                print("Norminette script already set for target", target.name)
+                continue
+            }
+            let phase = PBXShellScriptBuildPhase(name: norminettePhaseName,
+                                                 shellPath: "/bin/sh",
+                                                 shellScript: script)
+            target.buildPhases.append(phase)
+            pbxproj.add(object: phase)
+            print("Norminette script set for target", target.name)
+        }
 
         try pbxproj.write(path: XcodeProj.pbxprojPath(projectPath), override: true)
     }
