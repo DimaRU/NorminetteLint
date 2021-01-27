@@ -1,4 +1,4 @@
-# Norminette linter for 42 school, Xcode compatible
+# 42 school norminette for Xcode
 
 ## Install:
 
@@ -13,20 +13,19 @@ Requires Xcode 12.
 ## Usage
 
 ```
-USAGE: norminettelint [<path> ...] [--setup-xcode-proj] [--version] [--rules-list] [--warnings] [--config <path>] [--exclude <file> ...]
+USAGE: norminettelint [<path> ...] [--setup-xcode-proj] [--remote] [--rules-list] [--warnings] [--config <path>] [--exclude <file> ...]
 
 ARGUMENTS:
-  <path>                  Path to directory or file. 
+  <path>                  Path to directory or file.
 
 OPTIONS:
-  -s, --setup-xcode-proj  Add norminettelint run script to Xcode project 
-  -v, --version           Display version of the remote nominette server. 
-  --rules-list            Display rules list. 
-  -w, --warnings          Downgrade errors to warnings. 
-  -c, --config <path>     The path to the configuration file. 
-        By default, .norminettelint.yml searched on current directory and then
-        on home directory.
-  -x, --exclude <file>    Exclude file from check. 
+  -s, --setup-xcode-proj  Add norminettelint run script to Xcode project
+  --remote                Display version of the remote nominette server.
+  --rules-list            Display rules list.
+  -w, --warnings          Downgrade errors to warnings.
+  -c, --config <path>     The path to the configuration file.
+        By default, .norminettelint.yml searched on current directory and then on home directory.
+  -x, --exclude <file>    Exclude file from check.
   --version               Show the version.
   -h, --help              Show help information.
 ```
@@ -51,7 +50,7 @@ Threat errors as warnings.
 ```
 norminetteint -s project
 ```
-Setup Xcode project in `project` folder for check with norminettelint. Also set indent using tabs.
+Setup Xcode project in `project` folder for check with norminettelint. Also set indent using tabs and `-Wall`, `-Wextra` warning flags
 
 ```
 norminetteint -x main.c -x ft_proj.h 
