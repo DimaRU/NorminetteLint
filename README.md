@@ -2,9 +2,8 @@
 
 ## Install:
 
-Download form releases and copy executable to the "/usr/local/bin" for example.
-Create `.norminettelint.yml` configuation file in home directory or in project directory.
-
+Download form releases and copy executable to the "/usr/local/bin" or to the home directory (~) in school environment.
+Create `.norminettelint.yml` configuation file in home directory or in the project directory.
 
 ## Build:
 
